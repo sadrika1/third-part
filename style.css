@@ -21,7 +21,7 @@ body {
   padding-right: calc(50% - 1024px / 2);
 }
 
-.box {
+.window {
   margin-top: 156px;
   margin-left: 272px;
   width: 480px;
@@ -30,7 +30,7 @@ body {
   border-radius: 12px;
 }
 
-.box__text {
+.window__title {
   height: 96px;
   padding-top: 52px;
   width: 208px;
@@ -49,7 +49,7 @@ body {
   color: #004980;
 }
 
-.box__numbers {
+.window__level {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -65,7 +65,7 @@ body {
   padding-bottom: 67px;
 }
 
-.number {
+.window__level-button {
   width: 98px;
   height: 98px;
   background: #ffffff;
@@ -79,9 +79,10 @@ body {
   line-height: 72px;
 
   color: #0080c1;
+  cursor: pointer;
 }
 
-.box__button {
+.start__button {
   width: 246px;
   height: 50px;
 
@@ -95,4 +96,5 @@ body {
   line-height: 32px;
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
+  cursor: pointer;
 }
