@@ -22,6 +22,8 @@ body {
 }
 
 .window {
+  display: flex;
+  flex-direction: column;
   margin-top: 156px;
   margin-left: 272px;
   width: 480px;
@@ -51,7 +53,7 @@ body {
 
 .window__level {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -65,21 +67,26 @@ body {
   padding-bottom: 67px;
 }
 
-.window__level-button {
-  width: 98px;
-  height: 98px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: none;
-
-  font-family: "StratosSkyeng";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 72px;
-
-  color: #0080c1;
+.window__level label {
+  display: inline-block;
+  padding: 10px 29px;
   cursor: pointer;
+  border: 5px solid transparent;
+  border-radius: 12px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.window__level input[type="radio"] {
+  display: none;
+}
+
+.window__level input[type="radio"]:checked+label {
+  border: 5px solid #0080C1;
+}
+
+.window__level label:hover {
+  border: 5px solid #7db7d4
 }
 
 .start__button {
@@ -89,7 +96,6 @@ body {
   background: #7ac100;
   border-radius: 12px;
   border: none;
-  margin-left: 117px;
 
   font-weight: 400;
   font-size: 24px;
@@ -97,4 +103,8 @@ body {
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
   cursor: pointer;
+}
+
+.start__button:hover {
+  border: 3px solid #02922d;
 }

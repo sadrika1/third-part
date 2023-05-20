@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,35 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main class="main center">
         <section class="window">
             <h1 class="window__title">Выбери сложность</h1>
-            <div class="window__level">
+            <form name="mainForm" class="window__level">
+                <input type="radio" id="diffChoice1" class="window__level-button" name="difficult" value="1">
+                <label for="diffChoice1">1</label>
+                <input type="radio" id="diffChoice2" class="window__level-button" name="difficult" value="2">
+                <label for="diffChoice2">2</label>
+                <input type="radio" id="diffChoice3" class="window__level-button" name="difficult" value="3">
+                <label for="diffChoice3">3</label>
+                <div>
+                    <button type="submit" class="start__button" id="startBtn">Старт</button>
+                </div>
+            </form>
+            
+        
+   
+            <!--<div class="window__level">
                 <button class="window__level-button" data-level="Легкий">1</button>
                 <button class="window__level-button" data-level="Средний">2</button>
                 <button class="window__level-button" data-level="Сложный">3</button>
-            </div>
-            <button class="start__button" id="start_btn">Старт</button>
+            </div>-->
+    
         </section>
-        
     </main>
+
     <script src="index.js"></script>
 </body>
+
 </html>
