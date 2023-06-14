@@ -1,0 +1,142 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*****************************************************************/
+/* stylelint-disable prettier/prettier */
+@font-face {
+    font-family: "StratosSkyeng";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(ce93393e831d32412096.woff2) format("woff2");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #004980;
+    font-family: "StratosSkyeng";
+}
+
+.center {
+    padding-left: calc(50% - 1024px / 2);
+    padding-right: calc(50% - 1024px / 2);
+}
+
+.game__section_start {
+    width: 480px;
+    height: 459px;
+    background: #C2F5FF;
+    border-radius: 12px;
+    margin: auto;
+    margin-top: 158px;
+}
+
+.game__section_title {
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    font-feature-settings: 'pnum'on, 'lnum'on;
+    color: #004980;
+    padding-top: 52px;
+}
+
+.game__section_button {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding-top: 48px;
+}
+
+.game__btn {
+    width: 98px;
+    height: 98px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+
+    font-size: 64px;
+    line-height: 72px;
+    align-items: center;
+    text-align: center;
+    color: #0080C1;
+    cursor: pointer;
+}
+
+.game__btn:hover {
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+    background-color: #222;
+    color: #fff;
+}
+
+.game__card_list {
+    max-width: 1024px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+}
+
+.game__card {
+    background: url(449c457bb1f06b9f4465.svg);
+    width: 93px;
+    height: 133px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s linear;
+    margin: 1%;
+}
+
+
+.game__card i {
+    font-size: 40px;
+    display: none;
+}
+
+.game__card i+i {
+    display: block;
+}
+
+.game__card.flip {
+    background: #5dc6ff;
+    transform: perspective(100px) rotateY(180deg);
+}
+
+.game__card.flip i {
+    display: block;
+}
+
+.game__card.flip i+i {
+    display: none;
+}
+
+.game__card.successfully {
+    background: #76db82;
+}
+
+.game__card:hover {
+    background: #d1d1c0;
+}
+
+.restart__button {
+    width: 246px;
+    height: 50px;
+    background: #7AC100;
+    border-radius: 12px;
+
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    font-feature-settings: 'pnum'on, 'lnum'on;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+}
+
+/*# sourceMappingURL=main.css.map*/
