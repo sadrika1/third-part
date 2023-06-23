@@ -101,7 +101,6 @@ body {
 }
 
 .game__card.flip {
-
     transform: perspective(100px) rotateY(180deg);
 }
 
@@ -113,11 +112,11 @@ body {
     display: none;
 }
 
-/*.game__card.successfully {
+.game__card.successfully {
     background: #76db82;
 }
 
-.game__card:hover {
+/*.game__card:hover {
     background: #d1d1c0;
 }*/
 
