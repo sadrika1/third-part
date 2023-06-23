@@ -11,16 +11,16 @@ export const startGame = (difficult) => {
   let firstCard = null;
   let secondCard = null;
   let clickable = true;
-  
-  const headerElements = document.createElement('div');
-  headerElements.classList.add('header')
+
+  const headerElements = document.createElement("div");
+  headerElements.classList.add("header");
   const restartButton = document.createElement("button");
   restartButton.textContent = "Начать заново";
   restartButton.classList.add("restart__button");
   restartButton.addEventListener("click", createGameMenu);
-  const timer = document.createElement('p')
-  timer.classList.add('timer');
-  timer.textContent = '00.00';
+  const timer = document.createElement("p");
+  timer.classList.add("timer");
+  timer.textContent = "00.00";
   headerElements.append(restartButton, timer);
 
   const gameCardList = document.createElement("div");
