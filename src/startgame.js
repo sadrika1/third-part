@@ -3,20 +3,26 @@ import { createGameMenu } from "./gameMenu.js";
 import { createGameCard } from "./gamecard.js";
 import { shuffleArray } from "./utils.js";
 import { createFrontCards, duplicatedArray } from "./utils.js";
+import { initialCardIcons } from "./cards.js";
 
-const initialCardIcons = ["6", "7", "8", "9", "10", "Q", "K", "J", "A"]; // todo: реализовать иконки перевернутых карт через массив
+const gameSection = document.querySelector(".game__section");
 
 export const startGame = (difficult) => {
   let firstCard = null;
   let secondCard = null;
   let clickable = true;
-
+  
+  const headerElements = document.createElement('div');
+  headerElements.classList.add('header')
   const restartButton = document.createElement("button");
   restartButton.textContent = "Начать заново";
   restartButton.classList.add("restart__button");
   restartButton.addEventListener("click", createGameMenu);
+  const timer = document.createElement('p')
+  timer.classList.add('timer');
+  timer.textContent = '00.00';
+  headerElements.append(restartButton, timer);
 
-  const gameSection = document.querySelector(".game__section");
   const gameCardList = document.createElement("div");
   gameCardList.classList.add("game__card_list");
 
@@ -31,7 +37,7 @@ export const startGame = (difficult) => {
     (icon) => gameCardList.append(createGameCard("shirt", icon)) //1 - название деф иконки, 2 - иконка раскрытой карты из массива
   );
 
-  gameSection.append(restartButton, gameCardList);
+  gameSection.append(headerElements, gameCardList);
 
   const cards = document.querySelectorAll(".game__card");
   cards.forEach((card, index) => {

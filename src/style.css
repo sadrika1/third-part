@@ -17,9 +17,9 @@ body {
     font-family: "StratosSkyeng";
 }
 
-.center {
-    padding-left: calc(50% - 1024px / 2);
-    padding-right: calc(50% - 1024px / 2);
+.game__content {
+    max-width: 1024px;
+    margin: auto;
 }
 
 .game__section_start {
@@ -101,7 +101,7 @@ body {
 }
 
 .game__card.flip {
-    background: #5dc6ff;
+
     transform: perspective(100px) rotateY(180deg);
 }
 
@@ -113,13 +113,13 @@ body {
     display: none;
 }
 
-.game__card.successfully {
+/*.game__card.successfully {
     background: #76db82;
 }
 
 .game__card:hover {
     background: #d1d1c0;
-}
+}*/
 
 .restart__button {
     width: 246px;
@@ -134,4 +134,22 @@ body {
     color: #FFFFFF;
     cursor: pointer;
     border: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 1024px;
+    gap: 620px;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.timer {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #FFFFFF;
 }

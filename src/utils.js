@@ -25,7 +25,7 @@ export const createFrontCards = (initialDiff, array) => {
     case 2:
       return array.slice(0, 6); // средний - 12 карт
     case 3:
-      return array; // сложный - 18 карт
+      return array.slice(0, 9); // сложный - 18 карт
     default:
       break;
   }
