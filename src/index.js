@@ -1,5 +1,5 @@
 import "./style.css";
-import { createGameMenu } from "./gameMenu.js";
+import { createGameMenu } from "./menu.js";
 
 const cardsApp = () => {
   createGameMenu();
