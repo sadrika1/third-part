@@ -24,6 +24,12 @@ body {
     min-height: 100vh;
 }
 
+.header {
+    display: flex;
+    gap: 100px;
+    margin-top: 25px;
+}
+
 .choice-box {
     align-items: center;
     width: 480px;
@@ -98,9 +104,7 @@ body {
 }
 
 .start-btn:hover {
-    background-color: white;
-    border: 3px solid #7ac100;
-    color: #7ac100;
+    border: 3px solid #02922d;
 }
 
 .center {
@@ -214,7 +218,7 @@ body {
 }
 
 .game__card_list {
-    max-width: 1024px;
+    max-width: 550px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -235,10 +239,10 @@ body {
     display: block;
 }
 
-.game__card.flip {
-    /* background: #5dc6ff; */
+/* .game__card.flip {
+    /* background: #5dc6ff; 
     transform: perspective(100px) rotateY(180deg);
-}
+}  */
 
 .game__card.flip i {
     display: block;

@@ -16,6 +16,8 @@ export const startGame = (difficult) => {
   let secondCard = null;
   let clickable = true;
 
+  const headerElements = document.createElement("div")
+  headerElements.classList.add('header')
   const timerString = document.createElement("div");
   timerString.textContent = "Время";
   timerString.classList.add("timer");
@@ -24,6 +26,8 @@ export const startGame = (difficult) => {
   restartButton.textContent = "Начать заново";
   restartButton.classList.add("restart__button");
   restartButton.addEventListener("click", createGameMenu);
+
+  headerElements.append(timerString, restartButton)
 
   const gameSection = document.querySelector(".game__section");
   const gameCardList = document.createElement("div");
@@ -40,7 +44,7 @@ export const startGame = (difficult) => {
     gameCardList.append(createGameCard("shirt", icon))
   );
 
-  gameSection.append(restartButton, gameCardList, timerString);
+  gameSection.append(headerElements, gameCardList);
 
   const cards = document.querySelectorAll(".game__card");
   const flipStartCard = () => {

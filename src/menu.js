@@ -19,9 +19,7 @@ export const createGameMenu = () => {
 
   appEl.innerHTML = menuHtml;
 
-  const radioChoiceElemenet = document.querySelectorAll(
-    `input[type=radio][name="diff"]`
-  );
+  const radioChoiceElemenet = document.querySelectorAll(`input[type=radio][name="diff"]`);
   const startElement = document.getElementById("startBtn");
   let diff = 0;
 
