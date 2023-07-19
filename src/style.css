@@ -227,8 +227,8 @@ body {
 }
 
 .flip {
-    transform: rotateY(180deg);
-}
+    transform: rotateZ(180deg);
+} 
 
 .game__card i {
     font-size: 40px;
@@ -253,7 +253,7 @@ body {
 }
 
 .game__card.successfully {
-    background-color: #76db82;
+    box-shadow:0 0 15px #0ed467;
 }
 
 /*.game__card:hover {
