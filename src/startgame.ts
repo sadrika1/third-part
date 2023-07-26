@@ -11,9 +11,9 @@ const initialCardIcons = [
   "6b", "7b", "8b", "9b", "10b", "Qb", "Kb", "Jb","Ab",
 ];
 
-export const startGame = (difficult) => {
-  let firstCard = null;
-  let secondCard = null;
+export const startGame = (difficult: string) => {
+  let firstCard: number | null;
+  let secondCard: number | null;
   let clickable = true;
 
   const headerElements = document.createElement("div")
@@ -34,9 +34,9 @@ export const startGame = (difficult) => {
   gameCardList.classList.add("game__card_list");
 
   let cardIcons = shuffleArray(initialCardIcons);
-  gameSection.innerHTML = "";
+  gameSection!.innerHTML = "";
 
-  cardIcons = createFrontCards(difficult, cardIcons);
+  //cardIcons = createFrontCards(difficult, cardIcons); // не знаю как тут исправить!
   let duplicatedCardsIcons = duplicatedArray(cardIcons);
   duplicatedCardsIcons = shuffleArray(duplicatedCardsIcons);
 
@@ -44,7 +44,7 @@ export const startGame = (difficult) => {
     gameCardList.append(createGameCard("shirt", icon))
   );
 
-  gameSection.append(headerElements, gameCardList);
+  gameSection?.append(headerElements, gameCardList);
 
   const cards = document.querySelectorAll(".game__card");
   const flipStartCard = () => {
@@ -60,21 +60,18 @@ export const startGame = (difficult) => {
 
   let countdownTime = 3 * 60 * 1000;
 
-  const timerElement = document.querySelector(".timer");
+  const timerElement: HTMLElement = document.querySelector(".timer") as HTMLElement;
 
-  const countdown = setInterval(() => {
-    const minutes = Math.floor(countdownTime / 60000);
-    const seconds = ((countdownTime % 60000) / 1000).toFixed(0);
+  const countdown: NodeJS.Timer = setInterval(() => {
+    const minutes: number = Math.floor(countdownTime / 60000);
+    const seconds: number = +((countdownTime % 60000) / 1000).toFixed(0); // почему присваивается string???
 
-    timerElement.innerHTML = `Оставшееся время: ${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`;
-
+    timerElement!.innerHTML = `Оставшееся время: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`; // ! для игнорирования null?
     countdownTime -= 1000;
 
     if (countdownTime < 0) {
       clearInterval(countdown);
-      timerElement.innerHTML = "Время вышло!";
+      timerElement!.innerHTML = "Время вышло!";
     }
   }, 1000);
 
@@ -97,12 +94,12 @@ export const startGame = (difficult) => {
         firstCard !== secondCard
       ) {
         if (
-          cards[firstCard].firstElementChild.className ===
-          cards[secondCard].firstElementChild.className
+          cards[firstCard].firstElementChild!.className ===
+          cards[secondCard].firstElementChild!.className
         ) {
           setTimeout(() => {
-            cards[firstCard].classList.add("successfully");
-            cards[secondCard].classList.add("successfully");
+            cards[firstCard!].classList.add("successfully");
+            cards[secondCard!].classList.add("successfully");
 
             firstCard = null;
             secondCard = null;
@@ -110,8 +107,8 @@ export const startGame = (difficult) => {
           }, 500);
         } else {
           setTimeout(() => {
-            cards[firstCard].classList.remove("flip");
-            cards[secondCard].classList.remove("flip");
+            cards[firstCard!].classList.remove("flip");
+            cards[secondCard!].classList.remove("flip");
 
             firstCard = null;
             secondCard = null;

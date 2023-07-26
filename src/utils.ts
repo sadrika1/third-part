@@ -1,4 +1,4 @@
-export const shuffleArray = (array) => {
+export const shuffleArray = (array: string[]) => {
   console.log(array);
   let currentIndex = array.length,
     randomIndex;
@@ -15,10 +15,10 @@ export const shuffleArray = (array) => {
   return array;
 };
 
-export const duplicatedArray = (array) =>
-  array.reduce((res, current) => res.concat([current, current]), []);
+export const duplicatedArray = (array: string[]) =>
+  array.reduce((res, current) => res.concat([current, current]), [] as string[]);
 
-export const createFrontCards = (initialDiff, array) => {
+export const createFrontCards = (initialDiff: number, array: string) => {
   initialDiff = +initialDiff;
   switch (initialDiff) {
     case 1:

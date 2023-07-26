@@ -1,7 +1,7 @@
 import { startGame } from "./startgame.js";
 
 export const createGameMenu = () => {
-  const appEl = document.querySelector(".game__section");
+  const appEl: HTMLElement = document.querySelector(".game__section") as HTMLElement;
 
   const menuHtml = `       
         <div class="choice-box">
@@ -19,13 +19,13 @@ export const createGameMenu = () => {
 
   appEl.innerHTML = menuHtml;
 
-  const radioChoiceElemenet = document.querySelectorAll(`input[type=radio][name="diff"]`);
-  const startElement = document.getElementById("startBtn");
-  let diff = 0;
+  const radioChoiceElement = document.querySelectorAll(`input[type=radio][name="diff"]`);
+  const startElement: HTMLElement = document.getElementById("startBtn") as HTMLElement;
+  let diff = "";
 
-  radioChoiceElemenet.forEach((radio) =>
-    radio.addEventListener("change", () => {
-      diff = radio.value;
+  radioChoiceElement.forEach((radio) =>
+    radio.addEventListener("change", () => { 
+      diff = (radio as HTMLInputElement).value;
     })
   );
 
