@@ -1,4 +1,4 @@
-import { startGame } from "./startgame.js";
+import { startGame } from "./startgame";
 
 export const createGameMenu = () => {
   const appEl: HTMLElement = document.querySelector(".game__section") as HTMLElement;

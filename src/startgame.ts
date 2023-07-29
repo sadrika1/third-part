@@ -1,8 +1,8 @@
 //import { winnerGame } from "./confetti.js";
-import { createGameMenu } from "./menu.js";
-import { createGameCard } from "./gamecard.js";
-import { shuffleArray } from "./utils.js";
-import { createFrontCards, duplicatedArray } from "./utils.js";
+import { createGameMenu } from "./menu";
+import { createGameCard } from "./gamecard";
+import { shuffleArray } from "./utils";
+import { createFrontCards, duplicatedArray } from "./utils";
 
 const initialCardIcons = [
   "6p", "7p", "8p", "9p","10p","Qp", "Kp", "Jp", "Ap",
