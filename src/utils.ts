@@ -18,9 +18,9 @@ export const shuffleArray = (array: string[]) => {
 export const duplicatedArray = (array: string[]) =>
   array.reduce((res, current) => res.concat([current, current]), [] as string[]);
 
-export const createFrontCards = (initialDiff: number, array: string) => {
-  initialDiff = +initialDiff;
-  switch (initialDiff) {
+export const createFrontCards = (initialDiff: string, array: string[]) => {
+  let x = +initialDiff;
+  switch (x) {
     case 1:
       return array.slice(0, 3);
     case 2:
@@ -28,6 +28,6 @@ export const createFrontCards = (initialDiff: number, array: string) => {
     case 3:
       return array.slice(0, 9);
     default:
-      break;
+      return [];
   }
 };

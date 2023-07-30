@@ -12,8 +12,8 @@ const initialCardIcons = [
 ];
 
 export const startGame = (difficult: string) => {
-  let firstCard: number | null;
-  let secondCard: number | null;
+  let firstCard: number | null = null;
+  let secondCard: number | null = null;
   let clickable = true;
 
   const headerElements = document.createElement("div")
@@ -36,7 +36,7 @@ export const startGame = (difficult: string) => {
   let cardIcons = shuffleArray(initialCardIcons);
   gameSection!.innerHTML = "";
 
-  //cardIcons = createFrontCards(difficult, cardIcons); // не знаю как тут исправить!
+  cardIcons = createFrontCards(difficult, cardIcons); // не знаю как тут исправить!
   let duplicatedCardsIcons = duplicatedArray(cardIcons);
   duplicatedCardsIcons = shuffleArray(duplicatedCardsIcons);
 
