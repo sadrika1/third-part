@@ -34,31 +34,6 @@ var createGameCard = function (backface, frontface) {
     cards.append(flippedCard, notFlippedCard);
     return cards;
 };
-// import { initialCardIcons } from "./cards.js";
-// import { gameSection } from "./startgame.js";
-// export const createGameCard = () => {
-//   //const arrayCards = initialCardIcons;
-//   initialCardIcons.forEach((icon) => {
-//     const gameCardList = document.createElement("div");
-//     gameCardList.classList.add("game__card_list");
-//     gameSection.appendChild(gameCardList);
-//     // gameCardList.append(notFlippedCard, flippedCard);
-//     gameCardList.setAttribute('name', icon.name)
-//     const cards = document.createElement("div");
-//     cards.classList.add("game__card");
-//     // const flippedCard = document.createElement("i"); // img?
-//     // const notFlippedCard = document.createElement("i"); // img?
-//     const flippedCard = document.createElement("img");
-//     const notFlippedCard = document.createElement("img");
-//     // notFlippedCard.classList.add("backface", 'back');
-//     // flippedCard.classList.add("frontface", 'front');
-//     flippedCard.src = icon.imgSrc;
-//     notFlippedCard.src = '/static/shirt.png'
-//     notFlippedCard.classList.add("backface", `backface-${backface}`);
-//     flippedCard.classList.add("frontface", `frontface-${icon.name}`);
-//     cards.append(flippedCard, notFlippedCard);
-//   });
-// };
 
 
 /***/ }),
@@ -96,36 +71,6 @@ var createGameMenu = function () {
     });
 };
 createGameMenu();
-// import { startGame } from "./startgame.js";
-// export const createGameMenu = () => {
-//   const startGameMenu = document.createElement("div");
-//   startGameMenu.classList.add("game__section_start");
-//   const title = document.createElement("h2");
-//   title.classList.add("game__section_title");
-//   title.textContent = "Выберите уровень сложности";
-//   const gameButtons = document.createElement("div"); // отдельный контейнер для кнопок, для удобства
-//   gameButtons.classList.add("game__section_button");
-//   const gameSection = document.querySelector(".game__section");
-//   gameSection.innerHTML = ""; // очищение DOM после выбора сложности
-//   const createDifficultButton = (difficult) => {
-//     const button = document.createElement("button");
-//     button.classList.add("game__btn");
-//     button.textContent = `${difficult}`;
-//     button.addEventListener('click', () => startGame(difficult));
-//     return button;
-//     // button.addEventListener("submit", function(event) {
-//     //   event.preventDefault()
-//     // })
-//   };
-//   startGameMenu.append(title, gameButtons);
-//   gameButtons.append(
-//     createDifficultButton(1),
-//     createDifficultButton(2),
-//     createDifficultButton(3)
-//   );
-//   gameSection.append(startGameMenu);
-// };
-// createGameMenu();
 
 
 /***/ }),
@@ -154,15 +99,29 @@ var initialCardIcons = [
     "6c", "7c", "8c", "9c", "10c", "Qc", "Kc", "Jc", "Ac",
     "6b", "7b", "8b", "9b", "10b", "Qb", "Kb", "Jb", "Ab",
 ];
+var modal = document.querySelector('.modal-win');
+var modalLose = document.querySelector('.modal-lose');
+var resBtn = document.querySelector('.modal__btn');
+var btnLose = document.querySelector('.modal__btn_lose');
+var spentTimeEnd = document.querySelector('.modal__time');
 var startGame = function (difficult) {
-    var firstCard;
-    var secondCard;
+    var firstCard = null;
+    var secondCard = null;
     var clickable = true;
     var headerElements = document.createElement("div");
     headerElements.classList.add('header');
-    var timerString = document.createElement("div");
-    timerString.textContent = "Время";
-    timerString.classList.add("timer");
+    var timerString = document.createElement('span');
+    timerString.classList.add('timer');
+    var min = document.createElement('span');
+    min.classList.add('min');
+    var sek = document.createElement('span');
+    sek.classList.add('sek');
+    min.textContent = 'min';
+    sek.textContent = 'sek';
+    var time = document.createElement('p');
+    time.classList.add('time');
+    time.textContent = '03.00';
+    timerString.append(min, sek, time);
     var restartButton = document.createElement("button");
     restartButton.textContent = "Начать заново";
     restartButton.classList.add("restart__button");
@@ -173,7 +132,7 @@ var startGame = function (difficult) {
     gameCardList.classList.add("game__card_list");
     var cardIcons = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.shuffleArray)(initialCardIcons);
     gameSection.innerHTML = "";
-    cardIcons = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.createFrontCards)(difficult, cardIcons); // не знаю как тут исправить!
+    cardIcons = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.createFrontCards)(difficult, cardIcons);
     var duplicatedCardsIcons = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.duplicatedArray)(cardIcons);
     duplicatedCardsIcons = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.shuffleArray)(duplicatedCardsIcons);
     duplicatedCardsIcons.forEach(function (icon) {
@@ -191,15 +150,24 @@ var startGame = function (difficult) {
     };
     flipStartCard();
     var countdownTime = 3 * 60 * 1000;
+    var spentTime = 0;
     var timerElement = document.querySelector(".timer");
     var countdown = setInterval(function () {
         var minutes = Math.floor(countdownTime / 60000);
         var seconds = +((countdownTime % 60000) / 1000).toFixed(0); // почему присваивается string???
         timerElement.innerHTML = "\u041E\u0441\u0442\u0430\u0432\u0448\u0435\u0435\u0441\u044F \u0432\u0440\u0435\u043C\u044F: ".concat(minutes, ":").concat(seconds < 10 ? "0" : "").concat(seconds); // ! для игнорирования null?
         countdownTime -= 1000;
+        spentTime += 1000;
         if (countdownTime < 0) {
             clearInterval(countdown);
-            timerElement.innerHTML = "Время вышло!";
+            var toggleModal_1 = function () {
+                modalLose.classList.toggle('show-modal');
+            };
+            btnLose === null || btnLose === void 0 ? void 0 : btnLose.addEventListener('click', function () {
+                toggleModal_1();
+                (0,_menu__WEBPACK_IMPORTED_MODULE_0__.createGameMenu)();
+            });
+            toggleModal_1();
         }
     }, 1000);
     cards.forEach(function (card, index) {
@@ -239,9 +207,22 @@ var startGame = function (difficult) {
                     }, 500);
                 }
             }
-            if (Array.from(cards).every(function (card) { return card.className.includes("flip"); })) {
-                //document.querySelector(".winner__confetti").innerHTML = winnerGame;
-                alert("Вы победили!"); // доделать
+            if (Array.from(cards).every(function (card) {
+                return card.className.includes('flip');
+            })) {
+                clearInterval(countdown);
+                var toggleModal_2 = function () {
+                    modal.classList.toggle('show-modal');
+                    var minutes = Math.floor(spentTime / 60000);
+                    var seconds = +((spentTime % 60000) /
+                        1000).toFixed(0);
+                    spentTimeEnd.innerHTML = "0".concat(minutes, ".").concat(seconds < 10 ? '0' : '').concat(seconds);
+                };
+                resBtn === null || resBtn === void 0 ? void 0 : resBtn.addEventListener('click', function () {
+                    toggleModal_2();
+                    (0,_menu__WEBPACK_IMPORTED_MODULE_0__.createGameMenu)();
+                });
+                toggleModal_2();
             }
         });
     });

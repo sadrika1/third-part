@@ -11,6 +11,12 @@ const initialCardIcons = [
   "6b", "7b", "8b", "9b", "10b", "Qb", "Kb", "Jb","Ab",
 ];
 
+const modal = document.querySelector('.modal-win')
+const modalLose = document.querySelector('.modal-lose')
+const resBtn = document.querySelector('.modal__btn')
+const btnLose = document.querySelector('.modal__btn_lose')
+const spentTimeEnd = document.querySelector('.modal__time')
+
 export const startGame = (difficult: string) => {
   let firstCard: number | null = null;
   let secondCard: number | null = null;
@@ -18,9 +24,19 @@ export const startGame = (difficult: string) => {
 
   const headerElements = document.createElement("div")
   headerElements.classList.add('header')
-  const timerString = document.createElement("div");
-  timerString.textContent = "Время";
-  timerString.classList.add("timer");
+  const timerString = document.createElement('span')
+  timerString.classList.add('timer')
+
+  const min = document.createElement('span')
+  min.classList.add('min')
+  const sek = document.createElement('span')
+  sek.classList.add('sek')
+  min.textContent = 'min'
+  sek.textContent = 'sek'
+  const time = document.createElement('p')
+  time.classList.add('time')
+  time.textContent = '03.00'
+  timerString.append(min, sek, time)
 
   const restartButton = document.createElement("button");
   restartButton.textContent = "Начать заново";
@@ -36,7 +52,7 @@ export const startGame = (difficult: string) => {
   let cardIcons = shuffleArray(initialCardIcons);
   gameSection!.innerHTML = "";
 
-  cardIcons = createFrontCards(difficult, cardIcons); // не знаю как тут исправить!
+  cardIcons = createFrontCards(difficult, cardIcons);
   let duplicatedCardsIcons = duplicatedArray(cardIcons);
   duplicatedCardsIcons = shuffleArray(duplicatedCardsIcons);
 
@@ -59,6 +75,7 @@ export const startGame = (difficult: string) => {
   flipStartCard();
 
   let countdownTime = 3 * 60 * 1000;
+  let spentTime = 0;
 
   const timerElement: HTMLElement = document.querySelector(".timer") as HTMLElement;
 
@@ -69,11 +86,22 @@ export const startGame = (difficult: string) => {
     timerElement!.innerHTML = `Оставшееся время: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`; // ! для игнорирования null?
     countdownTime -= 1000;
 
+    spentTime += 1000
+
     if (countdownTime < 0) {
-      clearInterval(countdown);
-      timerElement!.innerHTML = "Время вышло!";
+        clearInterval(countdown)
+        const toggleModal = () => {
+            modalLose!.classList.toggle('show-modal')
+        }
+
+        btnLose?.addEventListener('click', () => {
+            toggleModal()
+            createGameMenu()
+        })
+
+        toggleModal()
     }
-  }, 1000);
+}, 1000)
 
   cards.forEach((card, index) => {
     card.addEventListener("click", () => {
@@ -116,10 +144,31 @@ export const startGame = (difficult: string) => {
           }, 500);
         }
       }
-      if (Array.from(cards).every((card) => card.className.includes("flip"))) {
-        //document.querySelector(".winner__confetti").innerHTML = winnerGame;
-        alert("Вы победили!"); // доделать
-      }
+      if (
+        Array.from(cards).every((card) =>
+            card.className.includes('flip'),
+        )
+    ) {
+        clearInterval(countdown)
+        const toggleModal = () => {
+            modal!.classList.toggle('show-modal')
+            const minutes: number = Math.floor(spentTime / 60000)
+            const seconds: number = +(
+                (spentTime % 60000) /
+                1000
+            ).toFixed(0)
+            spentTimeEnd!.innerHTML = `0${minutes}.${
+                seconds < 10 ? '0' : ''
+            }${seconds}`
+        }
+
+        resBtn?.addEventListener('click', () => {
+            toggleModal()
+            createGameMenu()
+        })
+
+        toggleModal()
+    }
     });
   });
 };

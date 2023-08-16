@@ -30,6 +30,37 @@ body {
     margin-top: 25px;
 }
 
+.min {
+    color: #fff;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: StratosSkyeng;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    padding-left: 39px;
+  }
+  
+  .sek {
+    color: #fff;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: StratosSkyeng;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    padding-left: 57px;
+  }
+  
+  .time {
+    color: #fff;
+    font-family: StratosSkyeng;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px;
+  }
+
 .choice-box {
     align-items: center;
     width: 480px;
@@ -408,152 +439,181 @@ body {
 
 
 
-/** {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #004980;
-    font-family: "StratosSkyeng";
-}
-
-.game__content {
-    max-width: 1024px;
-    margin: auto;
-}
-
-.game__section_start {
+.modal-win {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 73 128 / 90%);
+    visibility: hidden;
+    transform: scale(1.1);
+    transition:
+      visibility 0s linear 0.25s,
+      opacity 0.25s 0s,
+      transform 0.25s;
+  }
+  
+  .modal-lose {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 73 128 / 90%);
+    visibility: hidden;
+    transform: scale(1.1);
+    transition:
+      visibility 0s linear 0.25s,
+      opacity 0.25s 0s,
+      transform 0.25s;
+  }
+  
+  .modal-content {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c2f5ff;
+    padding: 1rem 1.5rem;
     width: 480px;
     height: 459px;
-    background: #C2F5FF;
     border-radius: 12px;
-    margin: auto;
-    margin-top: 158px;
-}
-
-.game__section_title {
-    font-size: 40px;
-    line-height: 48px;
-    text-align: center;
-    font-feature-settings: 'pnum'on, 'lnum'on;
-    color: #004980;
-    padding-top: 52px;
-}
-
-.game__section_button {
+  }
+  
+  .modal-content_lose {
+    opacity: 1;
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding-top: 48px;
-}
-
-.game__btn {
-    width: 98px;
-    height: 98px;
-    background: #FFFFFF;
-    border-radius: 12px;
-    border: none;
-
-    font-size: 64px;
-    line-height: 72px;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    color: #0080C1;
-    cursor: pointer;
-}
-
-.game__btn:hover {
-    transition: background-color .3s ease-in-out, color .3s ease-in-out;
-    background-color: #222;
-    color: #fff;
-}
-
-.game__card {
-    width: 93px;
-    height: 133px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    transition: all 0.2s linear;
-    margin: 1%;
-
-    transform-style: preserve-3d;
-    transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: rgb(0, 0, 0, 0.3) 15px 10px 10px;
-    position: relative;    
-}
-.backface, 
-.frontface {
     position: absolute;
-    pointer-events: none;
-} 
-
-.game__section{
-    max-width: 1024px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-    margin: auto;
-}
-
-.game__card img {
-    font-size: 40px;
-    display: block;
-}
-
-.game__card img+img {
-    display: none;
-}
-
-.game__card.flip {
-    transform-style: preserve-3d;
-    transform: rotateY(180eg);
-}
-
-.game__card.flip img {
-    display: none;
-}
-
-.game__card.flip img+img {
-    display: block;
-}
-
-.game__card_list.successfully {
-    background: #76db82;
-}
-
-.restart__button {
-    width: 246px;
-    height: 50px;
-    background: #7AC100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c2f5ff;
+    padding: 1rem 1.5rem;
+    width: 480px;
+    height: 459px;
     border-radius: 12px;
-
-    font-size: 24px;
-    line-height: 32px;
-    text-align: center;
-    font-feature-settings: 'pnum'on, 'lnum'on;
-    color: #FFFFFF;
-    cursor: pointer;
-    border: none;
-}
-
-.header {
-    display: flex;
-    flex-direction: row-reverse;
-    max-width: 1024px;
-    gap: 620px;
-
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.timer {
+  }
+  
+  .modal__img {
+    background: url("/static/win.svg");
+    margin-top: 26px;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 9px;
+  }
+  
+  .modal__img_lose {
+    background: url("/static/lose.svg");
+    margin-top: 26px;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 9px;
+  }
+  
+  .modal__title {
+    color: #004980;
+    font-family: StratosSkyeng;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
+    line-height: 48px;
+    margin-bottom: 28px;
+  }
+  
+  .modal__title_lose {
+    color: #004980;
+    font-family: StratosSkyeng;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+    margin-bottom: 28px;
+  }
+  
+  .modal__text {
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .modal__text_lose {
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .modal__time {
+    color: #000;
+    font-family: StratosSkyeng;
     font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
     line-height: 72px;
-    color: #FFFFFF;
-}*/
+    margin-bottom: 40px;
+  }
+  
+  .modal__time_lose {
+    color: #000;
+    font-family: StratosSkyeng;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px;
+    margin-bottom: 40px;
+  }
+  
+  .modal__btn {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(122 193 0);
+    width: 246px;
+    height: 48px;
+    color: #fff;
+    text-align: center;
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    cursor: pointer;
+  }
+  
+  .modal__btn_lose {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(122 193 0);
+    width: 246px;
+    height: 48px;
+    color: #fff;
+    text-align: center;
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    cursor: pointer;
+  }
+  
+  .show-modal {
+    visibility: visible;
+    transform: scale(1);
+    transition:
+      visibility 0s linear 0s,
+      opacity 0.25s 0s,
+      transform 0.25s;
+  }

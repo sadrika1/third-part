@@ -19,7 +19,7 @@ export const duplicatedArray = (array: string[]) =>
   array.reduce((res, current) => res.concat([current, current]), [] as string[]);
 
 export const createFrontCards = (initialDiff: string, array: string[]) => {
-  let x = +initialDiff;
+  const x = +initialDiff;
   switch (x) {
     case 1:
       return array.slice(0, 3);
