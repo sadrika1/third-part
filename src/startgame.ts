@@ -107,7 +107,7 @@ export const startGame = (difficult: string) => {
       } else {
       if (index !== firstCard) {
         secondCard = index
-        clickable = false
+        //clickable = false
       }}
       if (
         firstCard !== null &&
@@ -125,7 +125,7 @@ export const startGame = (difficult: string) => {
         firstCard = null
         secondCard = null
         clickable = true
-      }, 500)
+      }, 100)
       } else {
       setTimeout(() => {
         cards[firstCard!].classList.remove('flip')
@@ -134,7 +134,7 @@ export const startGame = (difficult: string) => {
         firstCard = null
         secondCard = null
         clickable = true
-      }, 500)}}
+      }, 200)}}
 
       if ( Array.from(cards).every((card) =>
         card.className.includes('flip'),)) {
