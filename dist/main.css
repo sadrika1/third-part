@@ -1,0 +1,624 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*****************************************************************/
+/* stylelint-disable prettier/prettier */
+@font-face {
+    font-family: "StratosSkyeng";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(ce93393e831d32412096.woff2) format("woff2");
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #004980;
+}
+
+.game__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    gap: 100px;
+    margin-top: 25px;
+}
+
+.min {
+    color: #fff;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: StratosSkyeng;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    padding-left: 39px;
+  }
+  
+  .sek {
+    color: #fff;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-family: StratosSkyeng;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    padding-left: 57px;
+  }
+  
+  .time {
+    color: #fff;
+    font-family: StratosSkyeng;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px;
+  }
+
+.choice-box {
+    align-items: center;
+    width: 480px;
+    height: 459px;
+    display: flex;
+    flex-direction: column;
+    background-color: #c2f5ff;
+    border-radius: 12px;
+}
+
+.title {
+    text-align: center;
+    width: 208px;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #004980;
+    margin-bottom: 48px;
+    margin-top: 52px;
+}
+
+.complex {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 67px;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+}
+
+.complex label {
+    display: inline-block;
+    padding: 10px 29px;
+    cursor: pointer;
+    border: 5px solid transparent;
+    border-radius: 12px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.complex input[type='radio'] {
+    display: none;
+}
+
+.complex input[type='radio']:checked+label {
+    border: 5px solid #0080c1;
+}
+
+.complex label:hover {
+    border: 5px solid #7db7d4;
+}
+
+.start-btn {
+    border: none;
+    background: #7ac100;
+    border-radius: 12px;
+    width: 246px;
+    height: 50px;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    border: 3px solid #02922d;
+}
+
+.center {
+    padding-left: calc(50% - 512px);
+    padding-right: calc(50% - 512px);
+}
+
+.header__second-page {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+    margin-bottom: 52px;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.card__back {
+    background: #ffffff;
+    border-radius: 4px;
+    width: 95px;
+    height: 133px;
+    background-image: url(6ec366b661d730d7a51f.png);
+    margin-bottom: 12px;
+}
+
+.restart_btn {
+    background: #7ac100;
+    border-radius: 12px;
+    width: 246px;
+    height: 50px;
+    margin-top: 30px;
+    margin-right: 50px;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: white;
+}
+
+.restart_btn:hover {
+    border: 3px solid #02922d;
+}
+
+.timer {
+    width: 155px;
+    height: 91px;
+}
+
+.timer__number {
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #ffffff;
+}
+
+.timer__text {
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 300;
+    color: #ffffff;
+    padding-left: 90px;
+}
+
+.timer {
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.restart__button {
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    width: 246px;
+    height: 50px;
+    background: #7AC100;
+    border-radius: 12px;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    font-feature-settings: 'pnum'on, 'lnum'on;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+}
+
+.game__card {
+    background: url(6ec366b661d730d7a51f.png);
+    width: 93px;
+    height: 133px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s linear;
+    margin: 1%;
+
+    transform-style: preserve-3d;
+    /*transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);*/
+    box-shadow: rgb(0, 0, 0, 0.3) 15px 10px 10px;
+}
+
+.game__card_list {
+    max-width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+}
+
+.flip {
+    transform: rotateZ(180deg);
+} 
+
+.game__card i {
+    font-size: 40px;
+    display: none;
+}
+
+.game__card i+i {
+    display: block;
+}
+
+/* .game__card.flip {
+    /* background: #5dc6ff; 
+    transform: perspective(100px) rotateY(180deg);
+}  */
+
+.game__card.flip i {
+    display: block;
+}
+
+.game__card.flip i+i {
+    display: none;
+}
+
+.game__card.successfully {
+    box-shadow:0 0 15px #0ed467;
+}
+
+/*.game__card:hover {
+ 
+}*/
+
+.game__card.frontface-6b.flip {
+    background: url(709d425583e119a283ea.png);
+}
+
+.game__card.frontface-7b.flip {
+    background: url(be3c76a26631458052f8.png);
+}
+
+.game__card.frontface-8b.flip {
+    background: url(c1288476119da3812158.png);
+}
+
+.game__card.frontface-9b.flip {
+    background: url(81d34e66d712484a07e4.png);
+}
+
+.game__card.frontface-10b.flip {
+    background: url(bcf65c405cc85294965f.png);
+}
+
+.game__card.frontface-Jb.flip {
+    background: url(bf0b7cbbf1dfa0392573.png);
+}
+
+.game__card.frontface-Qb.flip {
+    background: url(9687cb5e0c7bc48982e7.png);
+}
+
+.game__card.frontface-Kb.flip {
+    background: url(c1b467fb58b4c33f4777.png);
+}
+
+.game__card.frontface-Ab.flip {
+    background: url(71d3c674f84b4b4d5555.png);
+}
+
+.game__card.frontface-6p.flip {
+    background: url(e1e7db58e854cb268e47.png);
+}
+
+.game__card.frontface-7p.flip {
+    background: url(d8c0c5d5e765bd0f9864.png);
+}
+
+.game__card.frontface-8p.flip {
+    background: url(48957155eee046d58ff3.png);
+}
+
+.game__card.frontface-9p.flip {
+    background: url(35b6c040659fd51deb4a.png);
+}
+
+.game__card.frontface-10p.flip {
+    background: url(8de6e5aa3537c683ce2c.png);
+}
+
+.game__card.frontface-Jp.flip {
+    background: url(5f11abe4d229cb46373f.png);
+}
+
+.game__card.frontface-Qp.flip {
+    background: url(80e8f00ed96bfa4cc505.png);
+}
+
+.game__card.frontface-Kp.flip {
+    background: url(a04258b7ed3ef8fb56b1.png);
+}
+
+.game__card.frontface-Ap.flip {
+    background: url(b547c6039554a0ba9a84.png);
+}
+
+.game__card.frontface-6h.flip {
+    background: url(58333ab30609c81061a7.png);
+}
+
+.game__card.frontface-7h.flip {
+    background: url(7bfe4a990366b91ec5e5.png)
+
+}
+
+.game__card.frontface-8h.flip {
+    background: url(8146fb947aff9dec17b7.png);
+}
+
+.game__card.frontface-9h.flip {
+    background: url(adb048b7b3f50f3db4ba.png);
+}
+
+.game__card.frontface-10h.flip {
+    background: url(132ad2c2fdfdda005c0c.png);
+}
+
+.game__card.frontface-Jh.flip {
+    background: url(206fb4357abfe13b8901.png);
+}
+
+.game__card.frontface-Qh.flip {
+    background: url(c6fb741341177cd9f1d9.png);
+}
+
+.game__card.frontface-Kh.flip {
+    background: url(9f65cdfa25760987717f.png)
+
+}
+
+.game__card.frontface-Ah.flip {
+    background: url(e62013fd888eae63912c.png);
+}
+
+.game__card.frontface-6c.flip {
+    background: url(f1c76b46b8de29ee9b1e.png);
+}
+
+.game__card.frontface-7c.flip {
+    background: url(19937f1178b4699f1a1c.png);
+}
+
+.game__card.frontface-8c.flip {
+    background: url(3e503d93496fd0bc49b9.png);
+}
+
+.game__card.frontface-9c.flip {
+    background: url(fa72964e9c30e8e8f385.png);
+}
+
+.game__card.frontface-10c.flip {
+    background: url(0e97a23e4fe90ad57036.png);
+}
+
+.game__card.frontface-Jc.flip {
+    background: url(0446097ff249e73ba930.png);
+}
+
+.game__card.frontface-Qc.flip {
+    background: url(09db968453b9f8ded43b.png);
+}
+
+.game__card.frontface-Kc.flip {
+    background: url(96719270a08f03bdd58f.png);
+}
+
+.game__card.frontface-Ac.flip {
+    background: url(cebdaaf31c6146da5829.png);
+}
+
+
+
+.modal-win {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 73 128 / 90%);
+    visibility: hidden;
+    transform: scale(1.1);
+    transition:
+      visibility 0s linear 0.25s,
+      opacity 0.25s 0s,
+      transform 0.25s;
+  }
+  
+  .modal-lose {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 73 128 / 90%);
+    visibility: hidden;
+    transform: scale(1.1);
+    transition:
+      visibility 0s linear 0.25s,
+      opacity 0.25s 0s,
+      transform 0.25s;
+  }
+  
+  .modal-content {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c2f5ff;
+    padding: 1rem 1.5rem;
+    width: 480px;
+    height: 459px;
+    border-radius: 12px;
+  }
+  
+  .modal-content_lose {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c2f5ff;
+    padding: 1rem 1.5rem;
+    width: 480px;
+    height: 459px;
+    border-radius: 12px;
+  }
+  
+  .modal__img {
+    background: url(4b3a26d959ea3b017a47.svg);
+    margin-top: 26px;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 9px;
+  }
+  
+  .modal__img_lose {
+    background: url(dd624dc5a546abd19e75.svg);
+    margin-top: 26px;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 9px;
+  }
+  
+  .modal__title {
+    color: #004980;
+    font-family: StratosSkyeng;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+    margin-bottom: 28px;
+  }
+  
+  .modal__title_lose {
+    color: #004980;
+    font-family: StratosSkyeng;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+    margin-bottom: 28px;
+  }
+  
+  .modal__text {
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .modal__text_lose {
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .modal__time {
+    color: #000;
+    font-family: StratosSkyeng;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px;
+    margin-bottom: 40px;
+  }
+  
+  .modal__time_lose {
+    color: #000;
+    font-family: StratosSkyeng;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px;
+    margin-bottom: 40px;
+  }
+  
+  .modal__btn {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(122 193 0);
+    width: 246px;
+    height: 48px;
+    color: #fff;
+    text-align: center;
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    cursor: pointer;
+  }
+  
+  .modal__btn_lose {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(122 193 0);
+    width: 246px;
+    height: 48px;
+    color: #fff;
+    text-align: center;
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    cursor: pointer;
+  }
+  
+  .show-modal {
+    visibility: visible;
+    transform: scale(1);
+    transition:
+      visibility 0s linear 0s,
+      opacity 0.25s 0s,
+      transform 0.25s;
+  }
+
+/*# sourceMappingURL=main.css.map*/

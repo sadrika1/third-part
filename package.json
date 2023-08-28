@@ -1,0 +1,50 @@
+{
+  "name": "third-part",
+  "version": "1.0.0",
+  "description": "https://github.com/sadrika1/third-part.git",
+  "main": "index.ts",
+  "scripts": {
+    "build": "SET NODE_ENV='production' && webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "format": "prettier --write ./src/",
+    "lint:css": "stylelint ./src/**/*.css",
+    "lint": "npm run lint:css",
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "prepare": "husky install",
+    "lint:ts": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sadrika/third-part.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "html-webpack-plugin": "^5.5.3",
+    "husky": "^8.0.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^2.8.8",
+    "stylelint": "^15.7.0",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-prettier": "^3.0.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.86.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
